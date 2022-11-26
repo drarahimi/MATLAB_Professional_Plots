@@ -32,7 +32,7 @@ ylabel('$Output\ Y\ [-]$', 'interpreter','latex','FontSize',labels_font_size) % 
 grid on % add grid lines
 set(gca,'GridLineStyle','--') % set grid line style
 
-leg = legend('interpreter','latex','location','best', ...
+leg = legend('interpreter','latex','location','southwest', ...
     'Orientation','horizontal','NumColumns',legend_columns,'FontSize',legend_font_size); % add legend
 leg.ItemTokenSize = [legend_line_width,legened_marker_size]; %set legend marker size and line width, default is line_width=30, marker_size=18 for chaning the line size in legend
 
