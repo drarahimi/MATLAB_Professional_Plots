@@ -69,6 +69,7 @@ box on % set axis box on/off
 % them in your main script after you identify the elements interactively
 zoomPlot(ax(1),[],[],[],"showTicks","off");
 
+set(fig, 'PaperPositionMode', 'auto') % note that needs to be set to avoid undesired print/save results
 saveas(fig,'plot_single.svg') % save figure in svg (vector) format in the current directory
 saveas(fig,'plot_single.png') % save figure in png format in the current directory
 
@@ -164,5 +165,6 @@ box on % set axis box on/off
 
 set(fig,'Visible','on')
 
+set(fig, 'PaperPositionMode', 'auto') % note that needs to be set to avoid undesired print/save results
 saveas(fig,'plot_multiple.svg') % save figure in svg (vector) format in the current directory
 saveas(fig,'plot_multiple.png') % save figure in png format in the current directory
