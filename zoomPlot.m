@@ -37,6 +37,8 @@ function [desAx] = zoomPlot(srcAx,desLoc,srcLoc,conVec,options)
 
 % if any of the srcLoc, desLoc or conVec are empty, the function will ask
 % user to input them or automatically assigns them
+axes(srcAx);
+
 if (isempty(srcLoc))
     msg = text(0,1,'Step 1: Select SOURCE rectangle, 1st bottom-left then top-right corner', ...
         'color','r','FontSize',14,'BackgroundColor','w','HorizontalAlignment','left', ...
@@ -45,10 +47,12 @@ if (isempty(srcLoc))
     % position of top-right corner of the box for srcLoc
     pts = ginput(2);
     srcLoc = [pts(1,1) pts(1,2) pts(2,1) pts(2,2)];
-    % rectangle for the box on the src axis showing which area is being magnified (src)
-    rectangle(srcAx,'Position',[srcLoc(1) srcLoc(2) srcLoc(3)-srcLoc(1) srcLoc(4)-srcLoc(2)],'EdgeColor',options.boxColor,'linestyle',options.lineStyle,'lineWidth',options.lineWidth)
     delete(msg);
 end
+
+% rectangle for the box on the src axis showing which area is being magnified (src)
+rectangle(srcAx,'Position',[srcLoc(1) srcLoc(2) srcLoc(3)-srcLoc(1) srcLoc(4)-srcLoc(2)],'EdgeColor',options.boxColor,'linestyle',options.lineStyle,'lineWidth',options.lineWidth)
+
 if (isempty(desLoc))
     msg = text(0,1,'Step 2: Select DESTINATION rectangle, 1st bottom-left then top-right corner', ...
         'color','b','FontSize',14,'BackgroundColor','w','HorizontalAlignment','left', ...
