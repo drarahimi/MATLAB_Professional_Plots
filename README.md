@@ -19,13 +19,13 @@ An example of a single plot with zoomed axes is shown below
 
 
 # Multiple sub-plots
-For multiple sub-plots, we use a great function developed by [Eduard Reitmann](https://www.mathworks.com/matlabcentral/fileexchange/68326-border-less-tight-subplot-auto-refresh?s_tid=prof_contriblnk) note that you have to make your figure invisible first for this function to work properly and after all your work is done make it visible again.
+For multiple sub-plots, we use Tiledlayout.
 
 Additionally, an example of multiple sub-plots is shown below
 ![multiple plots image](plot_multiple.png)
 
 # Zoom plots
-There is a function written by Dr. Rahimi to help quickly and if needed interactively add zoom plots to your existing axes.
+There is a function written by Dr. Rahimi to help quickly and, if needed, interactively add zoom plots to your existing axes.
 
 you can simply call the function with 
 ```matlab
