@@ -21,6 +21,10 @@ fig=figure('visible','on');  % adds a new figure with pre-defined position
 set(fig, 'Units', 'Normalized', 'OuterPosition', [0.2, 0.2, 0.6, 0.7]); % set figure size    
 set(fig, 'Color', 'w') %set the figure background to white instead of default grey
 
+% use this  in MATLAB 2021+ for perfect tight layout results
+tiledlayout(1,1,  "TileSpacing","tight","Padding","tight")
+nexttile
+
 plot(x, y1,'r-','Displayname','$Sin(x)$', 'LineWidth', line_width) % plot data 1
 hold on
 plot(x, y2,'b-','Displayname','$Cos(x)$', 'LineWidth', line_width) % plot data 2
@@ -45,14 +49,7 @@ fontsize(fig,labels_font_size,"points") % set label font name and size
 fontname(fig,font_name) % set label font name and size
 
 % use only one of the following options
-% option 1 to remove extra white spaces around the plot axes in the figure
 ax(1) = gca; % get the current axis
-ti = ax(1).TightInset;  % find current axis tight layout
-%ax.Position = [ti(1), ti(2), 1 - ti(1) - ti(3), 1 - ti(2) - ti(4)]; % remove figures extra empty padding around axis
-
-% option 2 to remove extra white spaces around the plot axes in the figure
-set(gca, 'Position', get(gca, 'OuterPosition') - ...
-    get(gca, 'TightInset') * [-1 0 1 0; 0 -1 0 1; 0 0 1 0; 0 0 0 1]);
 
 ylim([-5,2])
 
@@ -81,7 +78,9 @@ fig=figure('visible','off');  % adds a new figure with pre-defined position
 set(fig, 'Units', 'Normalized', 'OuterPosition', [0.2, 0.2, 0.6, 0.7]); % set figure size    
 set(fig, 'Color', 'w') %set the figure background to white instead of default grey
 
-ax(1) = subplot_er(2,2,1);
+% use this  in MATLAB 2021+ for perfect tight layout results
+tiledlayout(2,2,  "TileSpacing","tight","Padding","tight")
+ax(1) = nexttile;
 
 plot(x, y1,'r-','Displayname','$Sin(x)$', 'LineWidth', line_width) % plot data 1
 title('$Sin(x)\ trends$', 'interpreter','latex','FontSize',titles_font_size) % add title
@@ -104,7 +103,7 @@ leg.ItemTokenSize = [legend_line_width,legened_marker_size]; %set legend marker 
 fontsize(ax(1),labels_font_size,"points") % set label font name and size
 fontname(ax(1),font_name) % set label font name and size
 
-ax(2) = subplot_er(2,2,2);
+ax(2) = nexttile;
 
 plot(x, y2,'b-','Displayname','$Cos(x)$', 'LineWidth', line_width) % plot data 2
 title('$Cos(x)\ trends$', 'interpreter','latex','FontSize',titles_font_size) % add title
@@ -127,7 +126,7 @@ leg.ItemTokenSize = [legend_line_width,legened_marker_size]; %set legend marker 
 fontsize(ax(2),labels_font_size,"points") % set label font name and size
 fontname(ax(2),font_name) % set label font name and size
 
-ax(3) = subplot_er(2,2,[3 4]);
+ax(3) = nexttile([1,2]);
 
 plot(x, y1+y2,'g-','Displayname','$Sin(x)+Cos(x)$', 'LineWidth', line_width) % plot data 2
 
